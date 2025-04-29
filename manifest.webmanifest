@@ -1,0 +1,21 @@
+{
+  "name": "AFAQ Construction",
+  "short_name": "AFAQ",
+  "description": "Your Best Constructor!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5cb4c2",
+  "icons": [
+    {
+      "src": "img/logo/Afaq-logo-Icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
