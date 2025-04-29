@@ -1,81 +1,30 @@
-/* 
- 
---- 01 TYPOGRAPHY SYSTEM
+:root {
+    --primary-color: #5cb4c2;
+    --primary-light: #99d8dd;
+    --primary-dark: #419197;
+    --secondary-color: #4c5fa5;
+    --text-color: #555;
+    --heading-color: #333;
+    --white: #ffffff;
+    --gray-light: #eee;
+    --gray-medium: #767676;
+    --shadow-sm: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+    --border-radius: 9px;
+    --transition: all 0.3s ease;
+}
 
-- Font weights
-Default: 400
-Medium: 500
-Semi-bold: 600
-Bold: 700
-
-- Line heights
-Default: 1
-Small: 1.05
-Medium: 1.2 
-Large: 1.8
-
-Paragraph default: 1.6
-
-- Letter spacing
--0.5px
-0.75px
-
-- FONT SIZES (px)
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 9
-
---- 02 COLORS
-
-- Primary: #e67e22
-
-- Tints: 
-#fdf2e9
-#fae5d3
-#eb984e
-
-- Shades: 
-#cf711f
-#45200a
-
-- Accents:
-
-- Greys:
-#6f6f6f ( Lightest grey allowed on #fdf2e9 )
-#555
-#333
-#888
-#767676 ( Lightest grey allowed on #fff )
-
---- 05 Shadows
-0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
-
-
---- 06 BORDER-RADIUS
-Default: 9px
-Medium: 11px
-
---- 07 WHITESPACE
-
-- SPACING SYSTEM (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
-*/
-/* 
-#02587b
-#5cb4c2
-#99d8dd
-#e0e8eb
-#f4ba00
-*/
-
-
-* {
+*,
+*::before,
+*::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
@@ -83,15 +32,12 @@ body {
     font-family: "Rubik", sans-serif;
     line-height: 1;
     font-weight: 400;
-    color: #555;
+    color: var(--text-color);
     overflow-x: hidden;
 }
 
-
-/*********** GENERAL REUSABLE COMPONENTS ***********/
-
+/* GENERAL REUSABLE COMPONENTS */
 .container {
-    /* 1140px */
     max-width: 120rem;
     padding: 0 3.2rem;
     margin: 0 auto;
@@ -99,8 +45,7 @@ body {
 
 .grid {
     display: grid;
-    column-gap: 6.4rem;
-    row-gap: 9.6rem;
+    gap: 6.4rem 9.6rem;
 }
 
 .grid:not(:last-child) {
@@ -119,11 +64,6 @@ body {
     grid-template-columns: repeat(4, 1fr);
 }
 
-
-/* .grid--5-cols {
-    grid-template-columns: repeat(5, 1fr);
-} */
-
 .grid--center-v {
     align-items: center;
 }
@@ -132,7 +72,7 @@ body {
 .heading-secondary,
 .heading-tertiary {
     font-weight: 700;
-    color: #333;
+    color: var(--heading-color);
     letter-spacing: -0.5px;
 }
 
@@ -151,77 +91,50 @@ body {
 .heading-tertiary {
     font-size: 5rem;
     line-height: 1.2;
-    margin-bottom: 3.5rem;
-    margin-top: 3.2rem;
+    margin: 3.2rem 0 3.5rem;
 }
 
 .subheading {
     display: block;
     font-size: 2.5rem;
     font-weight: 500;
-    color: #4c5fa5;
+    color: var(--secondary-color);
     text-transform: uppercase;
     margin-bottom: 1.6rem;
     letter-spacing: 0.75px;
 }
 
-.switch {
-    /* display: inline-block; */
-    /* display: flex;
-    align-items: center; */
-    justify-content: center;
-    justify-items: center;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.8rem;
-    padding: 0.6rem 1.6rem;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.3s;
-}
-
-.btn,
-.btn:link,
-.btn:visited {
+/* Buttons */
+.btn {
     display: inline-block;
     text-decoration: none;
     font-weight: 600;
     font-size: 2rem;
     padding: 1.6rem 3.2rem;
-    border-radius: 9px;
+    border-radius: var(--border-radius);
     border: none;
     cursor: pointer;
     font-family: inherit;
-    /* Put transition on original "state" */
-    /* transition: background-color 0.3s; */
-    transition: all 0.3s;
+    transition: var(--transition);
 }
 
-.btn--full:link,
-.btn--full:visited {
-    background-color: #5cb4c2;
-    color: #fff;
+.btn--full {
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
-.btn--full:hover,
-.btn--full:active {
-    background-color: #419197;
+.btn--full:hover {
+    background-color: var(--primary-dark);
 }
 
-.btn--outline:link,
-.btn--outline:visited {
-    background-color: #fff;
-    color: #555;
+.btn--outline {
+    background-color: var(--white);
+    color: var(--text-color);
 }
 
-.btn--outline:hover,
-.btn--outline:active {
-    background-color: #5cb4c2;
-    /* border: 3px solid #fff; */
-    /* Trick to add border inside */
-    box-shadow: inset 0 0 0 3px #fff;
+.btn--outline:hover {
+    background-color: var(--primary-color);
+    box-shadow: inset 0 0 0 3px var(--white);
 }
 
 .btn--form {
@@ -232,26 +145,38 @@ body {
 }
 
 .btn--form:hover {
-    background-color: #fff;
-    color: #555;
+    background-color: var(--white);
+    color: var(--text-color);
 }
 
-.link:link,
-.link:visited {
+/* Language switch button */
+.switch {
+    background: none;
+    border: none;
+    font-weight: 500;
+    font-size: 1.8rem;
+    padding: 0.6rem 1.6rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+/* Links */
+.link {
     display: inline-block;
-    color: #78D6C6;
+    color: #78d6c6;
     text-decoration: none;
     border-bottom: 1px solid currentColor;
     padding-bottom: 2px;
-    transition: all 0.3s;
+    transition: var(--transition);
 }
 
-.link:hover,
-.link:active {
-    color: #419197;
-    border-bottom: 1px solid transparent;
+.link:hover {
+    color: var(--primary-dark);
+    border-bottom-color: transparent;
 }
 
+/* Lists */
 .list {
     list-style: none;
     display: flex;
@@ -273,6 +198,7 @@ body {
     color: #e67e22;
 }
 
+/* Utility classes */
 .margin-right-sm {
     margin-right: 1.6rem !important;
 }
